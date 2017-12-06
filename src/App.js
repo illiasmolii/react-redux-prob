@@ -2,29 +2,23 @@ import React from "react";
 
 import Header from './components/Header.js';
 import MyPayments from "./components/tabs/my-payments/MyPayments";
+import {
+  pages, showExternal, showInternal, showMyPayments
+} from "./state/actions/navigation";
 
 export class App extends React.Component {
 
-  render() {
-    return (
-      <div>
-        <Header sections={
-          [
-            {
-              id: 1,
-              name: 'My Payments'
-            },
-            {
-              id: 2,
-              name: 'Internal'
-            },
-            {
-              id: 3,
-              name: 'International'
-            }
-          ]
-        }/>
-        <MyPayments payments={
+  navigation() {
+    switch (this.props.store.getState().navigation.page) {
+
+      case (pages.INTERNAL):
+        return <h1>Internal payment form will be here</h1>;
+
+      case (pages.EXTERNAL):
+        return <h1>External payment form will be here</h1>;
+
+      default:
+        return <MyPayments payments={
           [
             {
               id: 1,
@@ -41,7 +35,35 @@ export class App extends React.Component {
               amount: 200
             }
           ]
+        }/>;
+    }
+  }
+
+  render() {
+    let currentPage = this.navigation();
+
+    return (
+      <div>
+        <Header store={this.props.store} sections={
+          [
+            {
+              id: 1,
+              name: 'My Payments',
+              action: showMyPayments
+            },
+            {
+              id: 2,
+              name: 'Internal',
+              action: showInternal
+            },
+            {
+              id: 3,
+              name: 'External',
+              action: showExternal
+            }
+          ]
         }/>
+        { currentPage }
       </div>
     );
   }

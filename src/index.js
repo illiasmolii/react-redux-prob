@@ -5,7 +5,19 @@ import { App } from './App';
 
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+import { combineReducers, createStore } from "redux";
+import { navigation } from "./state/reducers/navigation";
+
+const rootReducer = combineReducers({
+  navigation
+});
+const store = createStore(rootReducer);
+
+const render = () => {
+  ReactDOM.render(
+    <App store={store}/>,
+    document.getElementById('root')
+  );
+};
+store.subscribe(() => render());
+render();

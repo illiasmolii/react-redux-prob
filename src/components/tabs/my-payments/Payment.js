@@ -3,7 +3,6 @@ import React from "react";
 export default class Payment extends React.Component {
 
   render() {
-    console.log(JSON.stringify(this.props));
     return (
       <tr>
         <td>{this.props.payment.id}</td>
