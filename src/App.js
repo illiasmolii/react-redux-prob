@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from './components/Header.js';
-import Select from './components/Select.js';
+import MyPayments from "./components/tabs/my-payments/MyPayments";
 
 export class App extends React.Component {
 
@@ -12,36 +12,36 @@ export class App extends React.Component {
           [
             {
               id: 1,
-              name: 'First'
+              name: 'My Payments'
             },
             {
               id: 2,
-              name: 'Second'
+              name: 'Internal'
             },
             {
               id: 3,
-              name: 'Third'
+              name: 'International'
             }
           ]
         }/>
-        <form>
-          <Select options={
-            [
-              {
-                value: 1,
-                name: 'first'
-              },
-              {
-                value: 2,
-                name: 'second'
-              },
-              {
-                value: 3,
-                name: 'third'
-              }
-            ]
-          }/>
-        </form>
+        <MyPayments payments={
+          [
+            {
+              id: 1,
+              recipient: 'John Doe',
+              date: new Date(2017, 9, 25),
+              currency: 'USD',
+              amount: 100
+            },
+            {
+              id: 2,
+              recipient: 'Jane Doe',
+              date: new Date(2017, 10, 1),
+              currency: 'USD',
+              amount: 200
+            }
+          ]
+        }/>
       </div>
     );
   }
