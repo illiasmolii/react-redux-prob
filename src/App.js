@@ -14,7 +14,7 @@ export class App extends React.Component {
     switch (this.props.store.getState().navigation.page) {
 
       case (pages.INTERNAL):
-        return <Internal />;
+        return <Internal store={this.props.store} />;
 
       case (pages.EXTERNAL):
         return <External />;
@@ -42,6 +42,8 @@ export class App extends React.Component {
   }
 
   render() {
+    console.log(JSON.stringify(this.props.store.getState()));
+
     let currentPage = this.navigation();
 
     return (

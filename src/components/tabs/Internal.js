@@ -1,8 +1,29 @@
 import React from "react";
 
 import Select from "../common/Select";
+import { createPayment, paymentTypes } from "../../state/actions/payments";
 
 export default class Internal extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.state = Object.assign({}, this.state, {
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmit() {
+    alert(JSON.stringify(this.state));
+    this.props.store.dispatch(createPayment(this.state, paymentTypes.INTERNAL));
+  }
 
   render() {
     return (
@@ -11,16 +32,18 @@ export default class Internal extends React.Component {
         <h1>Internal payment</h1>
         <form>
           <label>
-            Name
-            <input type={'text'}/>
+            Recipient
+            <input type={'text'} name={'recipient'} onChange={this.handleChange}/>
           </label>
           <br/>
           <label>
             IBAN
-            <input type={'text'}/>
+            <input type={'text'} name={'iban'} onChange={this.handleChange}/>
           </label>
           <br/>
           <Select label={'Type of the payment'}
+                  name={'type'}
+                  onchange={this.handleSubmit} // TODO
                   options={
                     [
                       {
@@ -34,12 +57,27 @@ export default class Internal extends React.Component {
                     ]
                   }/>
           <br/>
+          <Select label={'Currency'}
+                  name={'currency'}
+                  onchange={this.handleChange} // TODO
+                  options={
+                    [
+                      {
+                        name: 'USD',
+                        value: 'usd'
+                      },
+                      {
+                        name: 'EUR',
+                        value: 'eur'
+                      }
+                    ]
+                  }/>
           <label>
             Amount
-            <input type={'text'}/>
+            <input type={'text'} name={'amount'} onChange={this.handleChange}/>
           </label>
           <br/>
-          <input type={'submit'} value={'Create payment'}/>
+          <input type={'button'} onClick={this.handleSubmit} value={'Create payment'}/>
         </form>
       </section>
     );

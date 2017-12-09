@@ -7,9 +7,10 @@ import './index.css';
 
 import { combineReducers, createStore } from "redux";
 import { navigation } from "./state/reducers/navigation";
+import { payments } from "./state/reducers/payments";
 
 const rootReducer = combineReducers({
-  navigation
+  navigation, payments
 });
 const store = createStore(rootReducer);
 
