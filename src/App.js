@@ -2,6 +2,8 @@ import React from "react";
 
 import Header from './components/Header.js';
 import MyPayments from "./components/tabs/my-payments/MyPayments";
+import External from "./components/tabs/External";
+import Internal from "./components/tabs/Internal";
 import {
   pages, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
@@ -12,10 +14,10 @@ export class App extends React.Component {
     switch (this.props.store.getState().navigation.page) {
 
       case (pages.INTERNAL):
-        return <h1>Internal payment form will be here</h1>;
+        return <Internal />;
 
       case (pages.EXTERNAL):
-        return <h1>External payment form will be here</h1>;
+        return <External />;
 
       default:
         return <MyPayments payments={
