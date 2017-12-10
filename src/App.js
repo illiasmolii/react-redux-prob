@@ -30,7 +30,7 @@ export class App extends React.Component {
     let currentPage = this.navigation();
 
     return (
-      <div className={'container-fluid'}>
+      <div className={'container-fluid text-center'}>
         <Header store={this.props.store} sections={
           [
             {

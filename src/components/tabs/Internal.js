@@ -27,8 +27,7 @@ export default class Internal extends React.Component {
 
   render() {
     return (
-      <section className={'text-center'}>
-
+      <section>
         <h1>Internal payment</h1>
 
         <form>

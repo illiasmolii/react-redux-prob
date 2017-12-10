@@ -6,7 +6,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <header>
+      <header className={'row'}>
         {
           this.props.sections.map(section =>
             <Section key={section.id}

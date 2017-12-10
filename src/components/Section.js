@@ -4,7 +4,8 @@ export default class Section extends React.Component {
 
   render() {
     return (
-      <button onClick={() => this.props.store.dispatch(this.props.action())}>
+      <button className={'btn btn-default'}
+              onClick={() => this.props.store.dispatch(this.props.action())}>
         {this.props.name}
       </button>
     );
