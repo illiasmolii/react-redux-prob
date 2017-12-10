@@ -8,7 +8,7 @@ export default class MyPayments extends React.Component {
     if (this.props.payments) {
       return (
         <section>
-          <table>
+          <table className={'table'}>
             <tbody>
             <tr>
               <th>#</th>

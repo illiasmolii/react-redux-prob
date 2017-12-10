@@ -8,7 +8,7 @@ export default class Internal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { date: new Date() };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,27 +21,37 @@ export default class Internal extends React.Component {
   }
 
   handleSubmit() {
-    this.state.date = new Date();
     alert(JSON.stringify(this.state));
     this.props.store.dispatch(createPayment(this.state, paymentTypes.INTERNAL));
   }
 
   render() {
     return (
-      // TODO add Bootstrap
-      <section>
+      <section className={'text-center'}>
+
         <h1>Internal payment</h1>
+
         <form>
-          <label>
-            Recipient
-            <input type={'text'} name={'recipient'} onChange={this.handleChange}/>
-          </label>
-          <br/>
-          <label>
-            IBAN
-            <input type={'text'} name={'iban'} onChange={this.handleChange}/>
-          </label>
-          <br/>
+          <div className={'form-group'}>
+            <label className={'control-label'}>
+              Recipient
+              <input type={'text'}
+                     name={'recipient'}
+                     className={'form-control'}
+                     onChange={this.handleChange}/>
+            </label>
+          </div>
+
+          <div className={'form-group'}>
+            <label className={'control-label'}>
+              IBAN
+              <input type={'text'}
+                     name={'iban'}
+                     className={'form-control'}
+                     onChange={this.handleChange}/>
+            </label>
+          </div>
+
           <Select label={'Type of the payment'}
                   name={'type'}
                   onchange={this.handleChange}
@@ -57,7 +67,7 @@ export default class Internal extends React.Component {
                       }
                     ]
                   }/>
-          <br/>
+
           <Select label={'Currency'}
                   name={'currency'}
                   onchange={this.handleChange}
@@ -73,12 +83,20 @@ export default class Internal extends React.Component {
                       }
                     ]
                   }/>
-          <label>
-            Amount
-            <input type={'text'} name={'amount'} onChange={this.handleChange}/>
-          </label>
-          <br/>
-          <input type={'button'} onClick={this.handleSubmit} value={'Create payment'}/>
+
+          <div className={'form-group'}>
+            <label className={'control-label'}>
+              Amount
+              <input type={'text'}
+                     name={'amount'}
+                     className={'form-control'}
+                     onChange={this.handleChange}/>
+            </label>
+          </div>
+
+          <input type={'button'}
+                 onClick={this.handleSubmit}
+                 value={'Create payment'} className={'btn btn-primary'}/>
         </form>
       </section>
     );

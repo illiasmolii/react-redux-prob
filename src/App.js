@@ -25,12 +25,12 @@ export class App extends React.Component {
   }
 
   render() {
-    console.log(JSON.stringify(this.props.store.getState()));
+    console.log('STATE: ' + JSON.stringify(this.props.store.getState()));
 
     let currentPage = this.navigation();
 
     return (
-      <div>
+      <div className={'container-fluid'}>
         <Header store={this.props.store} sections={
           [
             {
