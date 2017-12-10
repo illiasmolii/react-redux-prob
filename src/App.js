@@ -20,24 +20,7 @@ export class App extends React.Component {
         return <External />;
 
       default:
-        return <MyPayments payments={
-          [
-            {
-              id: 1,
-              recipient: 'John Doe',
-              date: new Date(2017, 9, 25),
-              currency: 'USD',
-              amount: 100
-            },
-            {
-              id: 2,
-              recipient: 'Jane Doe',
-              date: new Date(2017, 10, 1),
-              currency: 'USD',
-              amount: 200
-            }
-          ]
-        }/>;
+        return <MyPayments payments={this.props.store.getState().payments.internal}/>;
     }
   }
 

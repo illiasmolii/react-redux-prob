@@ -5,7 +5,7 @@ export default class Payment extends React.Component {
   render() {
     return (
       <tr>
-        <td>{this.props.payment.id}</td>
+        <td>{this.props.i}</td>
         <td>{this.props.payment.recipient}</td>
         <td>{this.props.payment.date.toLocaleDateString()}</td>
         <td>{this.props.payment.currency}</td>
