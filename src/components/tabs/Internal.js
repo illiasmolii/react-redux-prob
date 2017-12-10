@@ -21,6 +21,7 @@ export default class Internal extends React.Component {
   }
 
   handleSubmit() {
+    this.state.date = new Date();
     alert(JSON.stringify(this.state));
     this.props.store.dispatch(createPayment(this.state, paymentTypes.INTERNAL));
   }
@@ -43,7 +44,7 @@ export default class Internal extends React.Component {
           <br/>
           <Select label={'Type of the payment'}
                   name={'type'}
-                  onchange={this.handleSubmit} // TODO
+                  onchange={this.handleChange}
                   options={
                     [
                       {
@@ -59,7 +60,7 @@ export default class Internal extends React.Component {
           <br/>
           <Select label={'Currency'}
                   name={'currency'}
-                  onchange={this.handleChange} // TODO
+                  onchange={this.handleChange}
                   options={
                     [
                       {
