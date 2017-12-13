@@ -1,5 +1,6 @@
 import React from "react";
 
+import config from "../../config";
 import Select from "../common/Select";
 import TextInput from "../common/TextInput";
 import { createPayment, paymentTypes } from "../../state/actions/payments";
@@ -38,34 +39,12 @@ export default class Internal extends React.Component {
           <Select label={'Type of the payment'}
                   name={'type'}
                   onchange={this.handleChange}
-                  options={
-                    [
-                      {
-                        name: 'Regular',
-                        value: 'regular'
-                      },
-                      {
-                        name: 'Charity',
-                        value: 'charity'
-                      }
-                    ]
-                  }/>
+                  options={config.paymentTypes}/>
 
           <Select label={'Currency'}
                   name={'currency'}
                   onchange={this.handleChange}
-                  options={
-                    [
-                      {
-                        name: 'USD',
-                        value: 'usd'
-                      },
-                      {
-                        name: 'EUR',
-                        value: 'eur'
-                      }
-                    ]
-                  }/>
+                  options={config.currencies}/>
 
           <TextInput name={'amount'} label={'Amount'} onchange={this.handleChange}/>
 
