@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Section extends React.Component {
+export default class NavButton extends React.Component {
 
   render() {
     return (

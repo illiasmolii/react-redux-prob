@@ -1,6 +1,7 @@
 import React from "react";
 
 import Select from "../common/Select";
+import TextInput from "../common/TextInput";
 import { createPayment, paymentTypes } from "../../state/actions/payments";
 
 export default class Internal extends React.Component {
@@ -31,25 +32,8 @@ export default class Internal extends React.Component {
         <h1>Internal payment</h1>
 
         <form>
-          <div className={'form-group'}>
-            <label className={'control-label'}>
-              Recipient
-              <input type={'text'}
-                     name={'recipient'}
-                     className={'form-control'}
-                     onChange={this.handleChange}/>
-            </label>
-          </div>
-
-          <div className={'form-group'}>
-            <label className={'control-label'}>
-              IBAN
-              <input type={'text'}
-                     name={'iban'}
-                     className={'form-control'}
-                     onChange={this.handleChange}/>
-            </label>
-          </div>
+          <TextInput name={'recipient'} label={'Recipient'} onchange={this.handleChange}/>
+          <TextInput name={'iban'} label={'IBAN'} onchange={this.handleChange}/>
 
           <Select label={'Type of the payment'}
                   name={'type'}
@@ -83,15 +67,7 @@ export default class Internal extends React.Component {
                     ]
                   }/>
 
-          <div className={'form-group'}>
-            <label className={'control-label'}>
-              Amount
-              <input type={'text'}
-                     name={'amount'}
-                     className={'form-control'}
-                     onChange={this.handleChange}/>
-            </label>
-          </div>
+          <TextInput name={'amount'} label={'Amount'} onchange={this.handleChange}/>
 
           <input type={'button'}
                  onClick={this.handleSubmit}

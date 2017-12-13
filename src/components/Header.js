@@ -1,6 +1,6 @@
 import React from "react";
 
-import Section from './Section.js';
+import NavButton from './NavButton.js';
 
 export default class Header extends React.Component {
 
@@ -9,7 +9,7 @@ export default class Header extends React.Component {
       <header className={'row'}>
         {
           this.props.sections.map(section =>
-            <Section key={section.id}
+            <NavButton key={section.id}
                      name={section.name}
                      action={section.action}
                      store={this.props.store}/>
