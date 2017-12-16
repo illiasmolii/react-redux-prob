@@ -10,7 +10,11 @@ export default class Internal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { date: new Date() };
+    this.state = {
+      date: new Date(),
+      type: config.paymentTypes[0].value,
+      currency: config.currencies[0].value
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
