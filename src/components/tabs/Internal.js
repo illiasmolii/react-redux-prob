@@ -17,13 +17,17 @@ export default class Internal extends React.Component {
   }
 
   handleChange(event) {
-    this.state = Object.assign({}, this.state, {
-      [event.target.name]: event.target.value
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
     });
   }
 
   handleSubmit() {
-    alert(JSON.stringify(this.state));
+    alert("Do you really want to create a payment: " + JSON.stringify(this.state));
     this.props.store.dispatch(createPayment(this.state, paymentTypes.INTERNAL));
   }
 

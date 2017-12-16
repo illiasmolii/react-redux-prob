@@ -1,10 +1,13 @@
 import { paymentAction, paymentTypes, paymentActionsTypes } from "../actions/payments";
 
-export const payments = (state = {}, action) => {
+const paymentActions = (state = [], action) => {
 
-  switch (action.type) {
-    case paymentAction:
-      return paymentType(state, action);
+  switch (action.paymentActionType) {
+    case paymentActionsTypes.CREATE:
+      return [
+        ...state,
+        action.payment
+      ];
 
     default:
       return state;
@@ -35,14 +38,11 @@ const paymentType = (
   }
 };
 
-const paymentActions = (state = [], action) => {
+export const payments = (state = {}, action) => {
 
-  switch (action.paymentActionType) {
-    case paymentActionsTypes.CREATE:
-      return [
-        ...state,
-        action.payment
-      ];
+  switch (action.type) {
+    case paymentAction:
+      return paymentType(state, action);
 
     default:
       return state;
