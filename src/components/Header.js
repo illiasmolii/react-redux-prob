@@ -1,6 +1,7 @@
 import React from "react";
 
 import NavButton from './NavButton.js';
+import { logout } from "../state/actions/auth";
 
 export default class Header extends React.Component {
 
@@ -15,6 +16,10 @@ export default class Header extends React.Component {
                      store={this.props.store}/>
           )
         }
+        <button className={'btn btn-danger'}
+                onClick={() => this.props.store.dispatch(logout())}>
+          Logout
+        </button>
       </header>
     );
   }
