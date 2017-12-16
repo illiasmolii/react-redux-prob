@@ -4,6 +4,7 @@ import Header from './components/Header.js';
 import MyPayments from "./components/tabs/my-payments/MyPayments";
 import External from "./components/tabs/External";
 import Internal from "./components/tabs/Internal";
+import Login from "./components/tabs/Login";
 import {
   pages, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
@@ -24,10 +25,18 @@ export class App extends React.Component {
     }
   }
 
+  isAuthenticated() {
+    return !!this.props.store.getState().auth.name;
+  }
+
   render() {
     console.log('STATE: ' + JSON.stringify(this.props.store.getState()));
 
     let currentPage = this.navigation();
+
+    if (!this.isAuthenticated()) {
+      return <Login store={this.props.store}/>;
+    }
 
     return (
       <div className={'container-fluid text-center'}>

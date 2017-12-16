@@ -20,6 +20,7 @@ export default class Internal extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // TODO move to base component class
   handleChange(event) {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
