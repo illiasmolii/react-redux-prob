@@ -16,7 +16,7 @@ export class App extends React.Component {
     switch (this.props.store.getState().navigation.page) {
 
       case (pages.BALANCE):
-        return <Balance />
+        return <Balance balance={this.props.store.getState().balance.value}/>;
 
       case (pages.INTERNAL):
         return <Internal store={this.props.store} />;

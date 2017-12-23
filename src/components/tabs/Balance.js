@@ -4,7 +4,11 @@ export default class Balance extends React.Component {
 
   render() {
     return (
-      <h1>Balance will be here</h1>
+      <section>
+        <h1>Balance</h1>
+
+        <p>Your current balance is: <strong>{this.props.balance} USD</strong></p>
+      </section>
     );
   }
 }

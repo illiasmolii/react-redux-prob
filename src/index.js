@@ -9,9 +9,10 @@ import { combineReducers, createStore } from "redux";
 import { navigation } from "./state/reducers/navigation";
 import { payments } from "./state/reducers/payments";
 import { auth } from "./state/reducers/auth";
+import { balance } from "./state/reducers/balance";
 
 const rootReducer = combineReducers({
-  navigation, payments, auth
+  navigation, payments, auth, balance
 });
 const store = createStore(rootReducer);
 
