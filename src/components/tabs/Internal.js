@@ -5,6 +5,7 @@ import Select from "../common/Select";
 import TextInput from "../common/TextInput";
 import FormComponentBase from "../common/FormComponentBase";
 import { createPayment, paymentTypes } from "../../state/actions/payments";
+import { changeBalance } from "../../state/actions/balance";
 
 export default class Internal extends FormComponentBase {
 
@@ -24,6 +25,7 @@ export default class Internal extends FormComponentBase {
   handleSubmit() {
     alert("Do you really want to create a payment: " + JSON.stringify(this.state));
     this.props.store.dispatch(createPayment(this.state, paymentTypes.INTERNAL));
+    this.props.store.dispatch(changeBalance(- this.state.amount, this.state.currency));
   }
 
   render() {
