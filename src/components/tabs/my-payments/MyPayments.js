@@ -17,7 +17,7 @@ export default class MyPayments extends React.Component {
                 <th>Date</th>
                 <th>Currency</th>
                 <th>Amount</th>
-                <th>Details</th>
+                <th>Details</th>{/* TODO */}
               </tr>
               {
                 this.props.payments.map((p, index) =>

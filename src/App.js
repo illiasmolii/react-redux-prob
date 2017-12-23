@@ -22,7 +22,7 @@ export class App extends React.Component {
         return <Internal store={this.props.store} />;
 
       case (pages.EXTERNAL):
-        return <External />;
+        return <External store={this.props.store} />;
 
       default:
         return <MyPayments payments={this.props.store.getState().payments.internal}/>;
