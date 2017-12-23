@@ -6,13 +6,17 @@ import External from "./components/tabs/External";
 import Internal from "./components/tabs/Internal";
 import Login from "./components/tabs/Login";
 import {
-  pages, showExternal, showInternal, showMyPayments
+  pages, showBalance, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
+import Balance from "./components/tabs/Balance";
 
 export class App extends React.Component {
 
   navigation() {
     switch (this.props.store.getState().navigation.page) {
+
+      case (pages.BALANCE):
+        return <Balance />
 
       case (pages.INTERNAL):
         return <Internal store={this.props.store} />;
@@ -44,16 +48,21 @@ export class App extends React.Component {
           [
             {
               id: 1,
+              name: 'Balance',
+              action: showBalance
+            },
+            {
+              id: 2,
               name: 'My Payments',
               action: showMyPayments
             },
             {
-              id: 2,
+              id: 3,
               name: 'Internal',
               action: showInternal
             },
             {
-              id: 3,
+              id: 4,
               name: 'External',
               action: showExternal
             }
