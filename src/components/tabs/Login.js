@@ -21,7 +21,7 @@ export default class Login extends FormComponentBase {
 
   render() {
     return (
-      <section>
+      <section className={'container-fluid text-center'}>
         <h1>Login</h1>
 
         <form>
