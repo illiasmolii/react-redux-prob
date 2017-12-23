@@ -3,9 +3,10 @@ import React from "react";
 import config from "../../config";
 import Select from "../common/Select";
 import TextInput from "../common/TextInput";
+import FormComponentBase from "../common/FormComponentBase";
 import { createPayment, paymentTypes } from "../../state/actions/payments";
 
-export default class Internal extends React.Component {
+export default class Internal extends FormComponentBase {
 
   constructor(props) {
     super(props);
@@ -18,17 +19,6 @@ export default class Internal extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  // TODO move to base component class
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
   }
 
   handleSubmit() {
