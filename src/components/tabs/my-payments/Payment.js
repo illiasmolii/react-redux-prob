@@ -15,7 +15,8 @@ export default class Payment extends React.Component {
         <td>{payment.currency}</td>
         <td>{payment.amount}</td>
         <td>
-          <button onClick={() => this.props.store.dispatch(showPaymentDetails(payment))}>
+          <button className={'btn btn-default'}
+                  onClick={() => this.props.store.dispatch(showPaymentDetails(payment))}>
             Details
           </button>
         </td>
