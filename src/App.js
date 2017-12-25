@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from './components/Header.js';
 import MyPayments from "./components/tabs/my-payments/MyPayments";
+import PaymentDetails from "./components/tabs/my-payments/PaymentDetails";
 import External from "./components/tabs/External";
 import Internal from "./components/tabs/Internal";
 import Login from "./components/tabs/Login";
@@ -13,10 +14,12 @@ import Balance from "./components/tabs/Balance";
 export class App extends React.Component {
 
   navigation() {
-    switch (this.props.store.getState().navigation.page) {
+    const state = this.props.store.getState();
+
+    switch (state.navigation.page) {
 
       case (pages.BALANCE):
-        return <Balance balance={this.props.store.getState().balance.value}/>;
+        return <Balance balance={state.balance.value}/>;
 
       case (pages.INTERNAL):
         return <Internal store={this.props.store} />;
@@ -24,8 +27,11 @@ export class App extends React.Component {
       case (pages.EXTERNAL):
         return <External store={this.props.store} />;
 
+      case (pages.PAYMENT_DETAILS):
+        return <PaymentDetails payment={state.navigation.payload}/>;
+
       default:
-        return <MyPayments payments={this.props.store.getState().payments.internal}/>;
+        return <MyPayments store={this.props.store}/>;
     }
   }
 

@@ -5,7 +5,12 @@ import Payment from "./Payment";
 export default class MyPayments extends React.Component {
 
   render() {
-    if (this.props.payments) {
+    const payments = this.props.store.getState().payments;
+    const mergedPayments = payments.internal
+      ? payments.internal.concat(payments.external ? payments.external : [])
+      : payments.external;
+
+    if (mergedPayments) {
       return (
         <section className={'row'}>
           <div className={'col-md-8 col-md-offset-2'}>
@@ -17,11 +22,11 @@ export default class MyPayments extends React.Component {
                 <th>Date</th>
                 <th>Currency</th>
                 <th>Amount</th>
-                <th>Details</th>{/* TODO */}
+                <th>Details</th>
               </tr>
               {
-                this.props.payments.map((p, index) =>
-                  <Payment key={index} i={index + 1} payment={p}/>
+                mergedPayments.map((p, index) =>
+                  <Payment key={index} i={index + 1} payment={p} store={this.props.store}/>
                 )
               }
               </tbody>

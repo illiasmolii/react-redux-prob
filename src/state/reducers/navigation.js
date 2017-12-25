@@ -9,7 +9,8 @@ export function navigation(state = initialState, action) {
   switch (action.type) {
     case navigationAction:
       return Object.assign({}, state, {
-          page: action.page
+          page: action.page,
+          payload: action.payload
         });
 
     default:
