@@ -11,7 +11,7 @@ const eurUsdRate = 1.1;
 const adjustCurrencyRate = (amount, currency) => {
 
   switch (currency) {
-    case 'EUR':
+    case 'eur':
       return amount * eurUsdRate;
 
     default:
