@@ -1,11 +1,12 @@
+import config from "../../config";
+
 import { balanceAction } from "../actions/balance";
 
 const initialBalance = {
   value: 1000
 };
 
-// HardCoded
-const eurUsdRate = 1.1;
+const eurUsdRate = config.eurUsdRate;
 
 // assume that all accounts are usd based
 const adjustCurrencyRate = (amount, currency) => {

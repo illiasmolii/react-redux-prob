@@ -21,4 +21,6 @@ export default class Config {
       value: 'charity'
     }
   ];
+
+  static eurUsdRate = 1.1;
 }
