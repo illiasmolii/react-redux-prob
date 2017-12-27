@@ -22,6 +22,7 @@ export default class MyPayments extends React.Component {
                 <th>Date</th>
                 <th>Currency</th>
                 <th>Amount</th>
+                <th>Fee</th>
                 <th>Details</th>
               </tr>
               {

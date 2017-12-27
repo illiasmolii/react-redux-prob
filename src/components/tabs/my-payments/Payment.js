@@ -14,6 +14,7 @@ export default class Payment extends React.Component {
         <td>{payment.date.toLocaleDateString()}</td>
         <td>{payment.currency}</td>
         <td>{payment.amount}</td>
+        <td>{payment.fee ? payment.fee : '0'}</td>
         <td>
           <button className={'btn btn-default'}
                   onClick={() => this.props.store.dispatch(showPaymentDetails(payment))}>

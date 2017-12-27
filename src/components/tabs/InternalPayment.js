@@ -1,29 +1,19 @@
 import React from "react";
 
 import config from "../../config";
-import TextInput from "../common/TextInput";
 import Select from "../common/Select";
+import TextInput from "../common/TextInput";
 import FormComponentBase from "../common/FormComponentBase";
-import ExternalPaymentCalculator from "../../util/ExternalPaymentCalculator";
 import { createPayment, paymentTypes } from "../../state/actions/payments";
 import { changeBalance } from "../../state/actions/balance";
 
-export default class External extends FormComponentBase {
-
-  countries = Object.keys(ExternalPaymentCalculator.zones)
-    .map(country => {
-      return {
-        name: country,
-        value: country
-      }
-    });
+export default class InternalPayment extends FormComponentBase {
 
   constructor(props) {
     super(props);
 
     this.state = {
       date: new Date(),
-      country: this.countries[0].value,
       type: config.paymentTypes[0].value,
       currency: config.currencies[0].value
     };
@@ -35,26 +25,17 @@ export default class External extends FormComponentBase {
   handleSubmit() {
     alert("Do you really want to create a payment: " + JSON.stringify(this.state));
     this.props.store.dispatch(createPayment(this.state, paymentTypes.INTERNAL));
-
-    const amountWithFee = ExternalPaymentCalculator.adjustAmount(this.state.country, this.state.amount);
-    console.log("AMOUNT WITH FEE: " + amountWithFee);
-    this.props.store.dispatch(
-      changeBalance(- amountWithFee, this.state.currency)
-    );
+    this.props.store.dispatch(changeBalance(- this.state.amount, this.state.currency));
   }
 
   render() {
     return (
       <section>
-        <h1>External payment</h1>
+        <h1>Internal payment</h1>
 
         <form>
           <TextInput name={'recipient'} label={'Recipient'} onchange={this.handleChange}/>
-
-          <Select label={'Country'}
-                  name={'country'}
-                  onchange={this.handleChange}
-                  options={this.countries}/>
+          <TextInput name={'iban'} label={'IBAN'} onchange={this.handleChange}/>
 
           <Select label={'Type of the payment'}
                   name={'type'}

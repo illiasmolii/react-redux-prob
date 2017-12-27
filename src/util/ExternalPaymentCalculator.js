@@ -36,6 +36,8 @@ export default class ExternalPaymentCalculator {
   };
 
   static adjustAmount(country, amount) {
+    if (!country) return amount;
+
     const zone = this.zones[country];
     const fee = this.fees[zone];
 

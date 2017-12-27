@@ -3,8 +3,8 @@ import React from "react";
 import Header from './components/Header.js';
 import MyPayments from "./components/tabs/my-payments/MyPayments";
 import PaymentDetails from "./components/tabs/my-payments/PaymentDetails";
-import External from "./components/tabs/External";
-import Internal from "./components/tabs/Internal";
+import External from "./components/tabs/ExternalPayment";
+import Internal from "./components/tabs/InternalPayment";
 import Login from "./components/tabs/Login";
 import {
   pages, showBalance, showExternal, showInternal, showMyPayments
