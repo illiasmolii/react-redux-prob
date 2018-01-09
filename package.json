@@ -8,6 +8,9 @@
     "react-scripts": "0.9.5",
     "redux": "^3.7.2"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
