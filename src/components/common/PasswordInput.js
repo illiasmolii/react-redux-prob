@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default class PasswordInput extends React.Component {
 
@@ -16,3 +17,7 @@ export default class PasswordInput extends React.Component {
     );
   }
 }
+
+PasswordInput.propTypes = {
+  onChange: PropTypes.func.isRequired
+};

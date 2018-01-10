@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import { showPaymentDetails } from "../../../state/actions/navigation";
 

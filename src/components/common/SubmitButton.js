@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default class SubmitButton extends React.Component {
 
@@ -10,3 +11,8 @@ export default class SubmitButton extends React.Component {
     );
   }
 }
+
+SubmitButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  onclick: PropTypes.func.isRequired
+};
