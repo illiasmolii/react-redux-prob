@@ -34,3 +34,7 @@ export default class Login extends FormComponentBase {
     );
   }
 }
+
+Login.propTypes = {
+  store: PropTypes.object.isRequired
+};

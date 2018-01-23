@@ -27,6 +27,7 @@ export default class Header extends React.Component {
 }
 
 Header.propTypes = {
+  store: PropTypes.object.isRequired,
   sections: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,

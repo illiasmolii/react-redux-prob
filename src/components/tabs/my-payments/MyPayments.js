@@ -41,3 +41,7 @@ export default class MyPayments extends React.Component {
     }
   }
 }
+
+MyPayments.propTypes = {
+  store: PropTypes.object.isRequired
+};

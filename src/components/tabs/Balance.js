@@ -13,3 +13,7 @@ export default class Balance extends React.Component {
     );
   }
 }
+
+Balance.propTypes = {
+  balance: PropTypes.number.isRequired
+};

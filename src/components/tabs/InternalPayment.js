@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import config from "../../config";
 import Select from "../common/Select";
@@ -57,3 +58,7 @@ export default class InternalPayment extends FormComponentBase {
     );
   }
 }
+
+InternalPayment.propTypes = {
+  store: PropTypes.object.isRequired
+};
