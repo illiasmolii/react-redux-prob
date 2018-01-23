@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import NavButton from './NavButton.js';
 import { logout } from "../state/actions/auth";
@@ -24,3 +25,12 @@ export default class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  store: PropTypes.object.isRequired,
+  sections: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    action: PropTypes.func
+  })).isRequired
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import Payment from "./Payment";
 
@@ -40,3 +41,7 @@ export default class MyPayments extends React.Component {
     }
   }
 }
+
+MyPayments.propTypes = {
+  store: PropTypes.object.isRequired
+};

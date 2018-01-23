@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default class TextInput extends React.Component {
 
@@ -16,3 +17,9 @@ export default class TextInput extends React.Component {
     );
   }
 }
+
+TextInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onchange: PropTypes.func.isRequired
+};

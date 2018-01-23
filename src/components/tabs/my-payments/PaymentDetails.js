@@ -1,8 +1,7 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default class PaymentDetails extends React.Component {
-
-
 
   render() {
     const payment = this.props.payment;
@@ -49,3 +48,7 @@ export default class PaymentDetails extends React.Component {
     );
   }
 }
+
+PaymentDetails.propTypes = {
+  payment: PropTypes.object.required
+};

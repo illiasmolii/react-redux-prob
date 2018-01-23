@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import config from "../../config";
 import TextInput from "../common/TextInput";
@@ -77,3 +78,7 @@ export default class ExternalPayment extends FormComponentBase {
     );
   }
 }
+
+ExternalPayment.propTypes = {
+  store: PropTypes.object.isRequired
+};

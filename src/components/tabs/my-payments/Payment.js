@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import { showPaymentDetails } from "../../../state/actions/navigation";
 
@@ -25,3 +26,9 @@ export default class Payment extends React.Component {
     );
   }
 }
+
+Payment.propTypes = {
+  payment: PropTypes.object.required,
+  i: PropTypes.number.required,
+  store: PropTypes.object.required
+};

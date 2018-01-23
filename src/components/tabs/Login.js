@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import FormComponentBase from "../common/FormComponentBase";
 import TextInput from "../common/TextInput";
@@ -33,3 +34,7 @@ export default class Login extends FormComponentBase {
     );
   }
 }
+
+Login.propTypes = {
+  store: PropTypes.object.isRequired
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default class NavButton extends React.Component {
 
@@ -11,3 +12,9 @@ export default class NavButton extends React.Component {
     );
   }
 }
+
+NavButton.propTypes = {
+  store: PropTypes.object.isRequired,
+  action: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
+};

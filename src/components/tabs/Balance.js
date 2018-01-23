@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export default class Balance extends React.Component {
 
@@ -12,3 +13,7 @@ export default class Balance extends React.Component {
     );
   }
 }
+
+Balance.propTypes = {
+  balance: PropTypes.number.isRequired
+};
