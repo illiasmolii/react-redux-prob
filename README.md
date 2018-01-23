@@ -6,5 +6,4 @@
 TODO:
 
 0) React-Redux
-1) Finish with PropTypes
-2) Extract initial state in separate file
+1) Extract initial state in separate file
