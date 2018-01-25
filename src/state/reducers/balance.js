@@ -2,10 +2,6 @@ import config from "../../config";
 
 import { balanceAction } from "../actions/balance";
 
-const initialBalance = {
-  value: 1000
-};
-
 const eurUsdRate = config.eurUsdRate;
 
 // assume that all accounts are usd based
@@ -20,7 +16,11 @@ const adjustCurrencyRate = (amount, currency) => {
   }
 };
 
-export const balance = (state = initialBalance, action) => {
+const initialBalance = {
+  value: 1000
+};
+
+const balance = (state = initialBalance, action) => {
 
   switch (action.type) {
     case balanceAction:
@@ -32,3 +32,5 @@ export const balance = (state = initialBalance, action) => {
       return state;
   }
 };
+
+export default balance;

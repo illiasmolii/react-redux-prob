@@ -4,7 +4,7 @@ const initialState = {
   page: pages.MY_PAYMENTS
 };
 
-export function navigation(state = initialState, action) {
+const navigation = (state = initialState, action) => {
 
   switch (action.type) {
     case navigationAction:
@@ -16,4 +16,6 @@ export function navigation(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default navigation;

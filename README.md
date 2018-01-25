@@ -7,3 +7,5 @@ TODO:
 
 0) React-Redux
 1) Extract initial state in separate file
+2) Structure: https://redux.js.org/docs/basics/ExampleTodoList.html
+3) React Router

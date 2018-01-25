@@ -1,6 +1,6 @@
 import { authAction } from "../actions/auth";
 
-export const auth = (state = {}, action) => {
+const auth = (state = {}, action) => {
 
   switch (action.type) {
     case authAction:
@@ -13,3 +13,5 @@ export const auth = (state = {}, action) => {
       return state;
   }
 };
+
+export default auth;

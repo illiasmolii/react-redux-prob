@@ -11,11 +11,11 @@ export const paymentTypes = {
   EXTERNAL: 'EXTERNAL'
 };
 
-export function createPayment(payment, paymentType) {
+export const createPayment = (payment, paymentType) => {
   return {
     type: paymentAction,
     paymentActionType: paymentActionsTypes.CREATE,
     paymentType: paymentType,
     payment: payment,
   };
-}
+};

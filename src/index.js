@@ -1,26 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from "redux";
 
 import { App } from './App';
+import rootReducer from './state/reducers';
 
 import './index.css';
 
-import { combineReducers, createStore } from "redux";
-import { navigation } from "./state/reducers/navigation";
-import { payments } from "./state/reducers/payments";
-import { auth } from "./state/reducers/auth";
-import { balance } from "./state/reducers/balance";
-
-const rootReducer = combineReducers({
-  navigation, payments, auth, balance
-});
 const store = createStore(rootReducer);
 
-const render = () => {
-  ReactDOM.render(
-    <App store={store}/>,
-    document.getElementById('root')
-  );
-};
-store.subscribe(() => render());
-render();
+/*const startApp = () => */render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root')
+);
+/*
+store.subscribe(() => startApp());
+startApp();*/

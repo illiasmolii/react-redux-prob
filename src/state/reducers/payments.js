@@ -38,7 +38,7 @@ const paymentType = (
   }
 };
 
-export const payments = (state = {}, action) => {
+const payments = (state = {}, action) => {
 
   switch (action.type) {
     case paymentAction:
@@ -48,3 +48,5 @@ export const payments = (state = {}, action) => {
       return state;
   }
 };
+
+export default payments;
