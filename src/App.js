@@ -5,11 +5,11 @@ import MyPayments from "./components/tabs/my-payments/MyPayments";
 import PaymentDetails from "./components/tabs/my-payments/PaymentDetails";
 import External from "./components/tabs/ExternalPayment";
 import Internal from "./components/tabs/InternalPayment";
-import Login from "./components/tabs/Login";
 import {
   pages, showBalance, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
 import Balance from "./components/tabs/Balance";
+import LoginComponent from "./containers/LoginContainer";
 
 export class App extends React.Component {
 
@@ -40,12 +40,10 @@ export class App extends React.Component {
   }
 
   render() {
-    console.log('STATE: ' + JSON.stringify(this.props.store.getState()));
-
     let currentPage = this.navigation();
 
     if (!this.isAuthenticated()) {
-      return <Login store={this.props.store}/>;
+      return <LoginComponent />;
     }
 
     return (

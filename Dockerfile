@@ -1,6 +1,6 @@
 FROM node:6
 
-# suppress webose logging
+# suppress werbose logging
 ENV NPM_CONFIG_LOGLEVEL warn
 
 # install serve globally

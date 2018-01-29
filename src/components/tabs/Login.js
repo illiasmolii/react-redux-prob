@@ -5,7 +5,6 @@ import FormComponentBase from "../common/FormComponentBase";
 import TextInput from "../common/TextInput";
 import PasswordInput from "../common/PasswordInput";
 import SubmitButton from "../common/SubmitButton";
-import { login } from "../../state/actions/auth";
 
 export default class Login extends FormComponentBase {
 
@@ -16,10 +15,6 @@ export default class Login extends FormComponentBase {
     this.login = this.login.bind(this);
   }
 
-  login() {
-    this.props.store.dispatch(login(this.state.name, this.state.pass));
-  }
-
   render() {
     return (
       <section className={'container-fluid text-center'}>
@@ -28,7 +23,7 @@ export default class Login extends FormComponentBase {
         <form>
           <TextInput name={'name'} label={'Name'} onchange={this.handleChange}/>
           <PasswordInput onchange={this.handleChange}/>
-          <SubmitButton text={'Login'} onclick={this.login}/>
+          <SubmitButton text={'Login'} onclick={this.props.onLogin()}/>
         </form>
       </section>
     );
@@ -36,5 +31,5 @@ export default class Login extends FormComponentBase {
 }
 
 Login.propTypes = {
-  store: PropTypes.object.isRequired
+  onLogin: PropTypes.func.isRequired
 };
