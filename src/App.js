@@ -8,8 +8,8 @@ import Internal from "./components/tabs/InternalPayment";
 import {
   pages, showBalance, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
-import Balance from "./components/tabs/Balance";
 import LoginComponent from "./containers/LoginContainer";
+import BalanceComponent from "./containers/BalanceContainer";
 
 export class App extends React.Component {
 
@@ -19,7 +19,7 @@ export class App extends React.Component {
     switch (state.navigation.page) {
 
       case (pages.BALANCE):
-        return <Balance balance={state.balance.value}/>;
+        return <BalanceComponent />;
 
       case (pages.INTERNAL):
         return <Internal store={this.props.store} />;

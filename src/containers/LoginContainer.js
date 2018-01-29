@@ -2,13 +2,6 @@ import { connect } from 'react-redux'
 import Login from '../components/tabs/Login'
 import { login } from "../state/actions/auth";
 
-const mapStateToProps = state => {
-  return {
-    name: state.name,
-    pass: state.pass
-  }
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     onLogin: () => {
@@ -18,7 +11,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const LoginComponent = connect(
-  mapStateToProps,
+  state => {},
   mapDispatchToProps,
 )(Login);
 
