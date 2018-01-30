@@ -6,8 +6,6 @@ import TextInput from "../common/TextInput";
 import Select from "../common/Select";
 import FormComponentBase from "../common/FormComponentBase";
 import ExternalPaymentCalculator from "../../util/ExternalPaymentCalculator";
-import { createPayment, paymentTypes } from "../../state/actions/payments";
-import { changeBalance } from "../../state/actions/balance";
 
 export default class ExternalPayment extends FormComponentBase {
 
@@ -41,8 +39,7 @@ export default class ExternalPayment extends FormComponentBase {
       fee: amountWithFee - this.state.amount
     });
 
-    this.props.store.dispatch(createPayment(this.state, paymentTypes.EXTERNAL));
-    this.props.store.dispatch(changeBalance(- amountWithFee, this.state.currency));
+    this.props.onCreatePayment(this.state, amountWithFee);
   }
 
   render() {
@@ -80,5 +77,5 @@ export default class ExternalPayment extends FormComponentBase {
 }
 
 ExternalPayment.propTypes = {
-  store: PropTypes.object.isRequired
+  onCreatePayment: PropTypes.func.isRequired
 };
