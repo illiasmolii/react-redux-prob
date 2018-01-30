@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import { createPayment, paymentTypes } from "../state/actions/payments";
 import { changeBalance } from "../state/actions/balance";
-import InternalPayment from "../components/tabs/InternalPayment";
+import InternalPayment from "../components/pages/InternalPayment";
 
 const mapDispatchToProps = dispatch => {
   return {

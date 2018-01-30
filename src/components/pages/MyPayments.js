@@ -6,7 +6,7 @@ import Payment from "./Payment";
 export default class MyPayments extends React.Component {
 
   render() {
-    const payments = this.props.store.getState().payments;
+    const payments = this.props.payments;
     const mergedPayments = payments.internal
       ? payments.internal.concat(payments.external ? payments.external : [])
       : payments.external;
@@ -28,7 +28,7 @@ export default class MyPayments extends React.Component {
               </tr>
               {
                 mergedPayments.map((p, index) =>
-                  <Payment key={index} i={index + 1} payment={p} store={this.props.store}/>
+                  <Payment key={index} i={index + 1} payment={p} store={this.props.showPaymentDetails}/>
                 )
               }
               </tbody>
@@ -43,5 +43,6 @@ export default class MyPayments extends React.Component {
 }
 
 MyPayments.propTypes = {
-  store: PropTypes.object.isRequired
+  payments: PropTypes.array.isRequired, // TODO specify array elements types
+  showPaymentDetails: PropTypes.func.isRequired
 };

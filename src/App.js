@@ -1,8 +1,7 @@
 import React from "react";
 
 import Header from './components/Header.js';
-import MyPayments from "./components/tabs/my-payments/MyPayments";
-import PaymentDetails from "./components/tabs/my-payments/PaymentDetails";
+import PaymentDetails from "./components/pages/PaymentDetails";
 import {
   pages, showBalance, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
@@ -10,6 +9,7 @@ import LoginComponent from "./containers/LoginContainer";
 import BalanceComponent from "./containers/BalanceContainer";
 import ExternalPaymentComponent from "./containers/ExternalPaymentContainer";
 import InternalPaymentComponent from "./containers/InternalPaymentContainer";
+import MyPaymentsComponent from "./containers/MyPaymentsContainer";
 
 export class App extends React.Component {
 
@@ -29,10 +29,10 @@ export class App extends React.Component {
         return <ExternalPaymentComponent />;
 
       /*case (pages.PAYMENT_DETAILS):
-        return <PaymentDetails payment={state.navigation.payload}/>;
+        return <PaymentDetails payment={state.navigation.payload}/>;*/
 
       default:
-        return <MyPayments store={this.props.store}/>;*/
+        return <MyPaymentsComponent />;
     }
   }
 

@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { showPaymentDetails } from "../../../state/actions/navigation";
-
 export default class Payment extends React.Component {
 
   render() {
@@ -18,7 +16,7 @@ export default class Payment extends React.Component {
         <td>{payment.fee ? payment.fee : '0'}</td>
         <td>
           <button className={'btn btn-default'}
-                  onClick={() => this.props.store.dispatch(showPaymentDetails(payment))}>
+                  onClick={() => this.props.showPaymentDetails(payment)}>
             Details
           </button>
         </td>
@@ -30,5 +28,5 @@ export default class Payment extends React.Component {
 Payment.propTypes = {
   payment: PropTypes.object.required,
   i: PropTypes.number.required,
-  store: PropTypes.object.required
+  showPaymentDetails: PropTypes.func.isRequired
 };

@@ -1,7 +1,6 @@
-import React from "react";
 import { connect } from 'react-redux'
 
-import Login from '../components/tabs/Login'
+import Login from '../components/pages/Login'
 import { login } from "../state/actions/auth";
 
 const mapDispatchToProps = dispatch => {

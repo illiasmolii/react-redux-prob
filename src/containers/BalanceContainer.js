@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import Balance from "../components/tabs/Balance";
+
+import Balance from "../components/pages/Balance";
 
 const mapStateToProps = state => {
   return {
