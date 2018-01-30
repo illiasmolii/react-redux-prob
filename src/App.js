@@ -3,13 +3,13 @@ import React from "react";
 import Header from './components/Header.js';
 import MyPayments from "./components/tabs/my-payments/MyPayments";
 import PaymentDetails from "./components/tabs/my-payments/PaymentDetails";
-import Internal from "./components/tabs/InternalPayment";
 import {
   pages, showBalance, showExternal, showInternal, showMyPayments
 } from "./state/actions/navigation";
 import LoginComponent from "./containers/LoginContainer";
 import BalanceComponent from "./containers/BalanceContainer";
 import ExternalPaymentComponent from "./containers/ExternalPaymentContainer";
+import InternalPaymentComponent from "./containers/InternalPaymentContainer";
 
 export class App extends React.Component {
 
@@ -22,7 +22,7 @@ export class App extends React.Component {
         return <BalanceComponent />;
 
       case (pages.INTERNAL):
-        return <Internal store={this.props.store} />;
+        return <InternalPaymentComponent />;
 
       case (pages.EXTERNAL):
         return <ExternalPaymentComponent />;
