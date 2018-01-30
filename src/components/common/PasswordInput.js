@@ -11,7 +11,7 @@ export default class PasswordInput extends React.Component {
           <input type={'password'}
                  name={'password'}
                  className={'form-control'}
-                 onChange={this.props.onchange}/>
+                 onChange={this.props.handleChange}/>
         </label>
       </div>
     );
@@ -19,5 +19,5 @@ export default class PasswordInput extends React.Component {
 }
 
 PasswordInput.propTypes = {
-  onChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired
 };

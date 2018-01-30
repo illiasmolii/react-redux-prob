@@ -1,17 +1,19 @@
+import React from "react";
 import { connect } from 'react-redux'
+
 import Login from '../components/tabs/Login'
 import { login } from "../state/actions/auth";
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogin: () => {
-      dispatch(login(this.state.name, this.state.pass))
+    onLogin: (name, pass) => {
+      dispatch(login(name, pass))
     }
   };
 };
 
 const LoginComponent = connect(
-  state => {},
+  undefined,
   mapDispatchToProps,
 )(Login);
 

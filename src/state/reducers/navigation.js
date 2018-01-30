@@ -1,7 +1,7 @@
 import { navigationAction, pages } from '../actions/navigation';
 
 const initialState = {
-  page: pages.MY_PAYMENTS
+  page: pages.BALANCE
 };
 
 const navigation = (state = initialState, action) => {

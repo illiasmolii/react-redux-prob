@@ -12,7 +12,11 @@ export default class Login extends FormComponentBase {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.login = this.login.bind(this);
+
+    this.state = {
+      name: "",
+      pass: ""
+    }
   }
 
   render() {
@@ -22,8 +26,9 @@ export default class Login extends FormComponentBase {
 
         <form>
           <TextInput name={'name'} label={'Name'} onchange={this.handleChange}/>
-          <PasswordInput onchange={this.handleChange}/>
-          <SubmitButton text={'Login'} onclick={this.props.onLogin()}/>
+          <PasswordInput handleChange={this.handleChange}/>
+          <SubmitButton text={'Login'}
+                        onclick={this.props.onLogin(this.state.name, this.state.pass)}/>
         </form>
       </section>
     );

@@ -14,9 +14,10 @@ import InternalPaymentComponent from "./containers/InternalPaymentContainer";
 export class App extends React.Component {
 
   navigation() {
-    const state = this.props.store.getState();
+    // const state = this.props.store.getState();
 
-    switch (state.navigation.page) {
+    switch (pages.BALANCE) {
+    // switch (state.navigation.page) {
 
       case (pages.BALANCE):
         return <BalanceComponent />;
@@ -27,16 +28,17 @@ export class App extends React.Component {
       case (pages.EXTERNAL):
         return <ExternalPaymentComponent />;
 
-      case (pages.PAYMENT_DETAILS):
+      /*case (pages.PAYMENT_DETAILS):
         return <PaymentDetails payment={state.navigation.payload}/>;
 
       default:
-        return <MyPayments store={this.props.store}/>;
+        return <MyPayments store={this.props.store}/>;*/
     }
   }
 
   isAuthenticated() {
-    return !!this.props.store.getState().auth.name;
+    // return !!this.props.store.getState().auth.name;
+    return false;
   }
 
   render() {
@@ -48,7 +50,7 @@ export class App extends React.Component {
 
     return (
       <div className={'container-fluid text-center'}>
-        <Header store={this.props.store} sections={
+        {/*<Header store={this.props.store} sections={
           [
             {
               id: 1,
@@ -71,7 +73,7 @@ export class App extends React.Component {
               action: showExternal
             }
           ]
-        }/>
+        }/>*/}
         { currentPage }
       </div>
     );

@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const ExternalPaymentComponent = connect(
-  state => {},
+  undefined,
   mapDispatchToProps
 )(ExternalPayment);
 
