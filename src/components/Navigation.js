@@ -46,6 +46,6 @@ export class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
-  authenticated: PropTypes.bool.required,
-  page: PropTypes.string.required
+  authenticated: PropTypes.bool.isRequired,
+  page: PropTypes.string.isRequired
 };
