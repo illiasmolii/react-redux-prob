@@ -10,12 +10,9 @@ import './index.css';
 
 const store = createStore(rootReducer);
 
-/*const startApp = () => */render(
+render(
   <Provider store={store}>
     <App/>
   </Provider>,
   document.getElementById('root')
 );
-/*
-store.subscribe(() => startApp());
-startApp();*/
