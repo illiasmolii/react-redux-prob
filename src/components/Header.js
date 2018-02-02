@@ -2,23 +2,22 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import NavButton from './NavButton.js';
-import { logout } from "../state/actions/auth";
 
 export default class Header extends React.Component {
 
   render() {
     return (
       <header className={'row'}>
-        {
-          this.props.sections.map(section =>
-            <NavButton key={section.id}
-                     name={section.name}
-                     action={section.action}
-                     store={this.props.store}/>
-          )
-        }
+        <NavButton name='Balance'
+                   action={this.props.balance} />
+        <NavButton name='My Payments'
+                   action={this.props.myPayments} />
+        <NavButton name='Internal'
+                   action={this.props.internal} />
+        <NavButton name='External'
+                   action={this.props.external} />
         <button className={'btn btn-danger'}
-                onClick={() => this.props.store.dispatch(logout())}>
+                onClick={() => this.props.logout()}>
           Logout
         </button>
       </header>
@@ -27,10 +26,9 @@ export default class Header extends React.Component {
 }
 
 Header.propTypes = {
-  store: PropTypes.object.isRequired,
-  sections: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    action: PropTypes.func
-  })).isRequired
+  balance: PropTypes.func.isRequired,
+  myPayments: PropTypes.func.isRequired,
+  internal: PropTypes.func.isRequired,
+  external: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired
 };
