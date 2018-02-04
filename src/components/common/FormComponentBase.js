@@ -1,6 +1,5 @@
 import React from "react";
 
-// TODO replace by component composition
 export default class FormComponentBase extends React.Component {
 
   constructor(props) {

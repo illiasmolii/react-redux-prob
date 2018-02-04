@@ -24,7 +24,8 @@ export default class ExternalPayment extends FormComponentBase {
       date: new Date(),
       country: this.countries[0].value,
       type: config.paymentTypes[0].value,
-      currency: config.currencies[0].value
+      currency: config.currencies[0].value,
+      fee: 0
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,12 +33,12 @@ export default class ExternalPayment extends FormComponentBase {
   }
 
   handleSubmit() {
-    alert("Do you really want to create a payment: " + JSON.stringify(this.state));
     const amountWithFee = ExternalPaymentCalculator.adjustAmount(this.state.country, this.state.amount);
-
-    this.state = Object.assign({}, this.state, {
+    this.setState({
       fee: amountWithFee - this.state.amount
     });
+
+    alert("Do you really want to create a payment: " + JSON.stringify(this.state));
 
     this.props.onCreatePayment(this.state, amountWithFee);
   }

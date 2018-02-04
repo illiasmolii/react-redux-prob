@@ -43,6 +43,6 @@ export default class MyPayments extends React.Component {
 }
 
 MyPayments.propTypes = {
-  payments: PropTypes.array.isRequired, // TODO specify array elements types
+  payments: PropTypes.arrayOf(PropTypes.object.isRequired),
   showPaymentDetails: PropTypes.func.isRequired
 };

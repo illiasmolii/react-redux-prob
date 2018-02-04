@@ -30,5 +30,5 @@ Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     value: PropTypes.string
-  })).isRequired // TODO check if it works
+  })).isRequired
 };

@@ -1,7 +1,7 @@
 import { paymentAction, paymentTypes, paymentActionsTypes } from "../actions/payments";
 import initialState from "./initialState";
 
-const paymentActions = (state = [], action) => {
+const paymentActions = (state, action) => {
 
   switch (action.paymentActionType) {
     case paymentActionsTypes.CREATE:
@@ -15,10 +15,7 @@ const paymentActions = (state = [], action) => {
   }
 };
 
-const paymentType = (
-  state,
-  action
-) => {
+const paymentType = (state, action) => {
 
   switch (action.paymentType) {
     case paymentTypes.INTERNAL:

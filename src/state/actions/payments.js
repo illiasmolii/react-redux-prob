@@ -2,12 +2,12 @@ export const paymentAction = 'PAYMENT';
 
 export const paymentActionsTypes = {
   CREATE: 'CREATE',
-  UPDATE: 'UPDATE',
-  UNDO: 'UNDO'
+  UPDATE: 'UPDATE', // TODO
+  UNDO: 'UNDO'      // TODO
 };
 
 export const paymentTypes = {
-  INTERNAL: 'INERNAL',
+  INTERNAL: 'INTERNAL',
   EXTERNAL: 'EXTERNAL'
 };
 
