@@ -5,7 +5,7 @@ import { showPaymentDetails } from "../state/actions/navigation";
 
 const mapStateToProps = state => {
   return {
-    payments: state.payments
+    payments: state.payments.internal.concat(state.payments.external)
   }
 };
 

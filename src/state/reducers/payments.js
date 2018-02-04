@@ -38,7 +38,7 @@ const paymentType = (
   }
 };
 
-const payments = (state = {}, action) => {
+const payments = (state = { internal: [], external: []}, action) => {
 
   switch (action.type) {
     case paymentAction:
