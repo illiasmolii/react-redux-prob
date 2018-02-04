@@ -4,7 +4,7 @@ import Balance from "../components/pages/Balance";
 
 const mapStateToProps = state => {
   return {
-    balance: state.balance
+    balance: state.balance.value
   }
 };
 

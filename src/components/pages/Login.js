@@ -28,7 +28,7 @@ export default class Login extends FormComponentBase {
           <TextInput name={'name'} label={'Name'} onchange={this.handleChange}/>
           <PasswordInput handleChange={this.handleChange}/>
           <SubmitButton text={'Login'}
-                        onclick={this.props.onLogin(this.state.name, this.state.pass)}/>
+                        onclick={() => this.props.onLogin(this.state.name, this.state.pass)}/>
         </form>
       </section>
     );

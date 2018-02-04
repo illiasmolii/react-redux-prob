@@ -37,9 +37,9 @@ export class Navigation extends React.Component {
   }
 
   render() {
-    if (!this.props.authenticated) {
-      return <LoginComponent />
-    }
+    // if (!this.props.authenticated) {
+    //   return <LoginComponent />
+    // }
 
     return this.currentPage();
   }
