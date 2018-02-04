@@ -3,7 +3,7 @@ import { Navigation } from "../components/Navigation";
 
 const mapStateToProps = state => {
   return {
-    authenticated: !!state.auth.name && !!state.auth.pass,
+    authenticated: !!state.auth.name,
     page: state.navigation.page
   }
 };
