@@ -7,6 +7,7 @@ import BalanceComponent from "../containers/BalanceContainer";
 import InternalPaymentComponent from "../containers/InternalPaymentContainer";
 import ExternalPaymentComponent from "../containers/ExternalPaymentContainer";
 import MyPaymentsComponent from "../containers/MyPaymentsContainer";
+import PaymentDetailsComponent from "../containers/PaymentDetailsContainer";
 
 export class Navigation extends React.Component {
 
@@ -28,8 +29,8 @@ export class Navigation extends React.Component {
       case (pages.EXTERNAL):
         return <ExternalPaymentComponent />;
 
-      /*case (pages.PAYMENT_DETAILS):
-        return <PaymentDetails payment={state.navigation.payload}/>; TODO */
+      case (pages.PAYMENT_DETAILS):
+        return <PaymentDetailsComponent />;
 
       default:
         return <MyPaymentsComponent />;

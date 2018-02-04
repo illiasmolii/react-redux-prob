@@ -7,11 +7,8 @@ export default class MyPayments extends React.Component {
 
   render() {
     const payments = this.props.payments;
-    const mergedPayments = payments.internal
-      ? payments.internal.concat(payments.external ? payments.external : [])
-      : payments.external;
 
-    if (mergedPayments) {
+    if (!!payments && payments.length > 0) {
       return (
         <section className={'row'}>
           <div className={'col-md-8 col-md-offset-2'}>
@@ -27,8 +24,11 @@ export default class MyPayments extends React.Component {
                 <th>Details</th>
               </tr>
               {
-                mergedPayments.map((p, index) =>
-                  <Payment key={index} i={index + 1} payment={p} store={this.props.showPaymentDetails}/>
+                payments.map((p, index) =>
+                  <Payment key={index}
+                           i={index + 1}
+                           payment={p}
+                           showPaymentDetails={this.props.showPaymentDetails}/>
                 )
               }
               </tbody>
