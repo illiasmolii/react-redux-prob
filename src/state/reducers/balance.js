@@ -1,6 +1,7 @@
 import config from "../../config";
 
 import { balanceAction } from "../actions/balance";
+import initialState from "./initialState";
 
 const eurUsdRate = config.eurUsdRate;
 
@@ -16,11 +17,7 @@ const adjustCurrencyRate = (amount, currency) => {
   }
 };
 
-const initialBalance = {
-  value: 1000
-};
-
-const balance = (state = initialBalance, action) => {
+const balance = (state = initialState.balance, action) => {
 
   switch (action.type) {
     case balanceAction:

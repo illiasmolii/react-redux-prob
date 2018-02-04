@@ -1,10 +1,7 @@
-import { navigationAction, pages } from '../actions/navigation';
+import { navigationAction } from '../actions/navigation';
+import initialState from "./initialState";
 
-const initialState = {
-  page: pages.BALANCE
-};
-
-const navigation = (state = initialState, action) => {
+const navigation = (state = initialState.navigation, action) => {
 
   switch (action.type) {
     case navigationAction:
